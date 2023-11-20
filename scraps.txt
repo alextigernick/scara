@@ -1,0 +1,72 @@
+# # def t_matrix(rot=[0, 0, 0], tra=[0, 0, 0]):
+
+# #     xA, yA, zA = rot
+
+# #     rX = np.array([[1, 0, 0, 0], [0, np.cos(xA), -np.sin(xA), 0], [0, np.sin(xA), np.cos(xA), 0], [0, 0, 0, 1]])
+# #     rY = np.array([[np.cos(yA), 0, np.sin(yA), 0], [0, 1, 0, 0], [-np.sin(yA), 0, np.cos(yA), 0], [0, 0, 0, 1]])
+# #     rZ = np.array([[np.cos(zA), -np.sin(zA), 0, 0], [np.sin(zA), np.cos(zA), 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+# #     r = rX@(rY@rZ)
+
+# #     t = np.identity(4)
+# #     t[:3, 3] = tra
+
+# #     return t@r
+# #     # return np.dot(t,r)
+
+# # def xrot(a):
+# #     return t_matrix([a*np.pi/180,0,0])
+# # def yrot(a):
+# #     return t_matrix([0,a*np.pi/180,0])
+# # def zrot(a):
+# #     return t_matrix([0,0,a*np.pi/180])
+
+# # path = turtle3d(["up",4,"repeat", 15, ["move",80,"arczrot",40],
+# #                 ],transforms=True)
+# # ushape = rot(90,p=[[-10, 0],[-10, 10],[ -7, 10],[ -7, 2],[  7, 2],[  7, 7],[ 10, 7],[ 10, 0]])
+# # cc = sweep(ushape, path)
+
+# # cc = nema_stepper_motor(23,h=100)
+# set_global_fn(20)
+# def cube_mask(x):
+#     return (cube(x*4).rotateZ(90)+cube(x*4).rotateZ(180)+cube(x*4).rotateZ(270)).down(x*2)
+
+
+# def profile():
+#     pld = 0.254
+#     h=0.75
+#     b = 0.4
+#     r2 = 1
+#     r3 = 0.555
+#     i = 0.63
+#     pitch = 2
+#     theta = np.linspace(0,2*np.pi,1000)[::-1]
+#     ret = []
+#     cutover = b/2+0.05
+#     for x, y in zip(r3*np.cos(theta), r3*np.sin(theta)):
+#         if y > cutover:
+#             ret.append((x,y))
+#             plt.plot(*ret[-1],"ro")
+            
+#     for x, y in zip(r2*(np.cos(theta)-b), r2*(np.sin(theta)-(h-r3))):
+#         if x > 0 and y < cutover and y>r3-h:
+#             ret.append((x,y))
+#             plt.plot(*ret[-1],"go")
+
+#     ret.append((pitch/2,r3-h))    
+#     plt.plot(*ret[-1],"yo")
+#     ret.append((pitch/2,r3-h-i))    
+#     plt.plot(*ret[-1],"yo")
+    
+#     ret.append((-pitch/2,r3-h-i))    
+#     plt.plot(*ret[-1],"yo")
+#     ret.append((-pitch/2,r3-h))    
+#     plt.plot(*ret[-1],"yo")
+    
+#     for x, y in zip(r2*(np.cos(theta)+b), r2*(np.sin(theta)-(h-r3))):
+#         if x < 0 and y < cutover and y>r3-h:
+#             ret.append((x,y))
+#             plt.plot(*ret[-1],"bo")
+
+        
+
+#     return ret

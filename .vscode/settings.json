@@ -1,0 +1,12 @@
+{
+    "editor.codeActionsOnSave": {},
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.py$",
+                "cmd": "python3 ${file}"
+            }
+        ]
+    },
+    "python.analysis.typeCheckingMode": "basic"
+}
